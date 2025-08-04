@@ -1,24 +1,24 @@
 pipeline {
-    stages {
-        stage('Test Docker') {
-            steps {
-                sh 'docker --version'
-            }
-        }
-    }
     
-    agent {
-        docker {
-            image 'node:20'  // or node:20
-            args '-u root:root' // optional if permission issues
-        }
-    }
+
+    // agent {
+    //     docker {
+    //         image 'node:20'  // or node:20
+    //         args '-u root:root' // optional if permission issues
+    //     }
+    // }
 
     environment {
         NODE_ENV = 'development'
     }
 
     stages {
+        stage('Test Docker') {
+            steps {
+                sh 'docker --version'
+            }
+        }
+        
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
