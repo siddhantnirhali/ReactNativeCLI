@@ -1,5 +1,5 @@
 pipeline {
-    
+    agent any  // Use 'any' to run on any available agent
 
     // agent {
     //     docker {
@@ -18,7 +18,7 @@ pipeline {
                 sh 'docker --version'
             }
         }
-        
+
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
