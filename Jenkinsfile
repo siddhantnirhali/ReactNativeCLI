@@ -1,4 +1,12 @@
 pipeline {
+    stages {
+        stage('Test Docker') {
+            steps {
+                sh 'docker --version'
+            }
+        }
+    }
+    
     agent {
         docker {
             image 'node:20'  // or node:20
