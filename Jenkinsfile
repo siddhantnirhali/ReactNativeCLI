@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:20'  // or node:20
+            args '-u root:root' // optional if permission issues
+        }
+    }
 
     environment {
         NODE_ENV = 'development'
